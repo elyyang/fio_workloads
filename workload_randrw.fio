@@ -1,0 +1,45 @@
+[global]
+
+# Job description
+numjobs=1
+name=randrw
+description="Random mixed reads and writes"
+
+# I/O type
+direct=0
+rw=randrw
+
+# I/O engine
+ioengine=libaio
+
+# I/O size
+size=100%
+
+# I/O depth 
+iodepth=64
+
+# Block size
+bs=4k
+
+# Verification
+do_verify=1
+verify_pattern=0xdeadbeaf
+verify=crc32
+
+# Measurements and reporting
+group_reporting
+disk_util=1
+
+# Time related params
+time_based
+ramp_time=3s
+runtime=5s
+
+# Error handling
+exitall_on_error
+error_dump=1
+
+[device]
+
+directory=/dev
+filename=/nvme0n1
